@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    k8s-app: shenhengheng-pulsar
+  name: shenhengheng-pulsar
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: shenhengheng-pulsar
+    metadata:
+      labels:
+        k8s-app: shenhengheng-pulsar
+      name: shenhengheng-pulsar
+    spec:
+      containers:
+      - args:
+        - standalone
+        command:
+        - /pulsar/bin/pulsar
+        image: apachepulsar/pulsar:2.2.0
+        name: shenhengheng-pulsar
+~                                     
